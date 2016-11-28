@@ -122,12 +122,12 @@
           textEnter.append("tspan")
               .attr("class", "sort alpha")
               .attr("dx", "2em")
-              .text("alpha »")
+              .text("alpha Â»")
               .on("mousedown.parsets", cancelEvent);
           textEnter.append("tspan")
               .attr("class", "sort size")
               .attr("dx", "2em")
-              .text("size »")
+              .text("size Â»")
               .on("mousedown.parsets", cancelEvent);
           dimension
               .call(d3.behavior.drag()
@@ -189,7 +189,7 @@
         function sortBy(type, f, dimension) {
           return function(d) {
             var direction = this.__direction = -(this.__direction || 1);
-            d3.select(this).text(direction > 0 ? type + " »" : "« " + type);
+            d3.select(this).text(direction > 0 ? type + " Â»" : "Â« " + type);
             d.categories.sort(function() { return direction * f.apply(this, arguments); });
             nodes = layout(tree, dimensions, ordinal);
             updateCategories(dimension);
@@ -589,7 +589,7 @@
       var t = this.textContent = text(d, i),
           w = width(d, i);
       if (this.getComputedTextLength() < w) return t;
-      this.textContent = "…" + t;
+      this.textContent = "Â…" + t;
       var lo = 0,
           hi = t.length + 1,
           x;
@@ -598,7 +598,7 @@
         if ((x = this.getSubStringLength(0, mid)) < w) lo = mid + 1;
         else hi = mid;
       }
-      return lo > 1 ? t.substr(0, lo - 2) + "…" : "";
+      return lo > 1 ? t.substr(0, lo - 2) + "Â…" : "";
     };
   }
 
